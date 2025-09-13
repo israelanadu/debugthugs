@@ -1139,6 +1139,8 @@ div.landing_record_bar div.record_cover h4 span {
 }
 
 @media screen and (max-width:500px) {
+  header div.head_cover nav.head_container button {font-size: 12px;padding: 10px 18px;}
+  header div.head_cover nav.head_container h5{display: none;}
   footer div.footer_cover section.footer_contain div.footer_container {
     grid-template-columns: 100%;
   }

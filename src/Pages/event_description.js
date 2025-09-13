@@ -36,7 +36,7 @@ const EventDescription = ({ events }) => {
                     <div className="description_main_container">
 
                         <div className="description_body_cover">
-                            <img src={event.thumbnails} alt="image"/>
+                            <img src={event.thumbnails} alt={`image ${event.id}`}/>
                             <div className="description_content">
                                 <h2>{event.title}</h2>
                                 <div className="info">
@@ -84,7 +84,7 @@ const EventDescription = ({ events }) => {
                                             <img
                                                 key={item.id}
                                                 src={item.img}
-                                                alt={`Gallery ${item.id}`}
+                                                alt={`Event gallery item ${item.id}`}
                                                
                                             />
                                         ))}

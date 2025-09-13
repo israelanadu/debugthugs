@@ -344,7 +344,8 @@ div.dash_table_container section.dash_contain div.dash_cover p{
 div.dash_table_container section.dash_contain div.dash_cover div.table_list{
     width: 100%;
     height: 80%;
-    overflow: hidden;
+    overflow-y: scroll;
+    overflow-x: hidden;
     
 }
 div.dash_table_container section.dash_contain div.dash_cover div.table_list li{
@@ -444,7 +445,7 @@ div.dash_gallery_container section.gallery_contain div.folder_contain section.ga
 }
 div.dash_gallery_container section.gallery_contain div.folder_contain section.gallery_card img{
     width: 100%;
-    
+
 }
 div.dash_gallery_container section.gallery_contain div.folder_contain section.gallery_card div.card_info{
     width: calc(100% - 20px);
@@ -872,6 +873,7 @@ div.rating_container section.rating_cover div.comment_container section.comment_
     div.dash_content_container div.dash_contain div.dash_record_container nav.record_contain h4 span{font-size: 9px;}
     div.dash_content_container div.dash_contain div.dash_head h3{font-size: 22px;}
     div.dash_content_container div.dash_contain div.dash_head p,div.dash_table_container section.dash_contain div.dash_cover p{font-size: 10px;}
+    div.dash_content_container div.dash_contain div.dash_record_container div.filter_cover section.filter_contain button{font-size: 11px;padding: 10px 20px;}
 }
 
 

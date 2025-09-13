@@ -64,16 +64,47 @@ class Event extends Component {
 
     filterByCategory = () => {
         const event = this.props.event || [];
-        const { category } = this.state;
-
-        if (category === "Select Category") {
-            return event; // return all if default
-        }
-
-        return event.filter((item) =>
+        const { category, sort } = this.state;
+      
+        let filtered = event;
+      
+        // --- Filter by category ---
+        if (category !== "Select Category") {
+          filtered = filtered.filter((item) =>
             String(item.category).toLowerCase().includes(category.toLowerCase())
-        );
-    };
+          );
+        }
+      
+        // --- Sorting logic ---
+        if (sort === "Upcoming") {
+          filtered = [...filtered].sort((a, b) => {
+            const [dayA, monthA, yearA] = a.date.split("-").map(Number);
+            const [dayB, monthB, yearB] = b.date.split("-").map(Number);
+      
+            const dateA = new Date(yearA, monthA - 1, dayA);
+            const dateB = new Date(yearB, monthB - 1, dayB);
+      
+            return dateA - dateB; // earliest first
+          });
+        } else if (sort === "Most Recent") {
+          filtered = [...filtered].sort((a, b) => {
+            const [dayA, monthA, yearA] = a.date.split("-").map(Number);
+            const [dayB, monthB, yearB] = b.date.split("-").map(Number);
+      
+            const dateA = new Date(yearA, monthA - 1, dayA);
+            const dateB = new Date(yearB, monthB - 1, dayB);
+      
+            return dateB - dateA; // latest first
+          });
+        } else if (sort === "Alphabetical") {
+          filtered = [...filtered].sort((a, b) =>
+            a.title.localeCompare(b.title)
+          );
+        }
+        // else if sort === "Sort By" → do nothing (default)
+      
+        return filtered;
+      };
 
     //   filterByCategory = () => {
     //     const event = this.filterByCategory()  || [];
@@ -146,7 +177,7 @@ class Event extends Component {
                                                 <li onClick={() => this.handleFilter("", "category")}>All</li>
                                                 <li onClick={() => this.handleFilter("Academy", "category")}>Academic Events</li>
                                                 <li onClick={() => this.handleFilter("Cultural", "category")}>Cultural Events</li>
-                                                <li onClick={() => this.handleFilter("Department", "category")}>Departmental Events</li>
+                                                <li onClick={() => this.handleFilter("Departmental", "category")}>Departmental Events</li>
                                                 <li onClick={() => this.handleFilter("Sports", "category")}>Sports Events</li>
                                             </div> : null
                                         }

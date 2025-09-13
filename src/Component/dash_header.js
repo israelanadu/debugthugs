@@ -100,7 +100,7 @@ const DashHeader = () => {
                 <nav>
                   <Link to="/dashboard"><li>Dashboard</li></Link>
                   <Link to="/event"><li>Events</li></Link>
-                  <Link to="/about"><li>About</li></Link>
+                  <Link to="/about"><li>Gallary</li></Link>
                   <Link to="/contact"><li>Contact</li></Link>
                 </nav>
               </section>

@@ -14,6 +14,13 @@ import Images5 from "../asset/image/landingimg4.jpg"
 import { connect } from "react-redux"
 
 
+function slugify(text) {
+    return text
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-') 
+        .replace(/^-+|-+$/g, '');   
+}
+
 class LandingPage extends Component {
     state = {
         user: {
@@ -44,15 +51,30 @@ class LandingPage extends Component {
         }
     }
 
-    handleNavigate = (path) => {
+    handleNavigate = (path, event = null) => {
         const { user } = this.state;
+    
+        // if it's the general event page
         if (path === "/event") {
             if (user.full_name && user.full_name.trim() !== "") {
                 window.location = "/event";
             } else {
                 window.location = "/register";
             }
-        } else {
+        }
+        // if it's a specific event details page
+        else if (path === "event_detail" && event) {
+            const slug = slugify(event.title);
+            const eventPath = `/event/${event.id}/${slug}`;
+    
+            if (user.full_name && user.full_name.trim() !== "") {
+                window.location = eventPath;
+            } else {
+                window.location = "/register";
+            }
+        }
+        // default navigation
+        else {
             window.location = path;
         }
     };
@@ -60,20 +82,15 @@ class LandingPage extends Component {
 
 
     render() {
-        function slugify(text) {
-            return text
-                .toLowerCase()
-                .replace(/[^a-z0-9]+/g, '-') // replace non-alphanumeric with -
-                .replace(/^-+|-+$/g, '');   // trim dashes
-        }
+       
         const event = this.props.event;
         console.log(this.props.event, event)
         const eventList =
             event && event.length > 0
                 ? event.slice(0, 3).map((list, index) => {
                     return (
-                        <Link to={`/event/${list.id}/${slugify(list.title)}`}>
-                            <section key={index} className="event_card">
+                        // <Link to={`/event/${list.id}/${slugify(list.title)}`}>
+                            <section key={index} className="event_card" onClick={() => this.handleNavigate("event_detail", list)}>
                                 <div className="image">
                                     <img src={list.thumbnails} alt="event" />
                                     <div className="info">
@@ -93,7 +110,7 @@ class LandingPage extends Component {
                                     </div>
                                 </div>
                             </section>
-                        </Link>
+                        // </Link>
                     );
                 })
                 : null;
