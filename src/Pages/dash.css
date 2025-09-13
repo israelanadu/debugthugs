@@ -926,6 +926,8 @@ div.rating_container section.rating_cover div.comment_container section.comment_
     div.dash_content_container div.dash_contain div.dash_head p,div.dash_table_container section.dash_contain div.dash_cover p{font-size: 10px;}
     div.dash_content_container div.dash_contain div.dash_record_container div.filter_cover section.filter_contain button{font-size: 11px;padding: 10px 20px;}
     div.descrip_side_container{flex-direction: column;display: flex;}
+    div.description_body_cover div.description_content h2{font-size: 30px;}
+    div.descrip_side_container section.decript_content p,div.description_body_cover div.description_content div.info p{font-size: 12px;}
 }
 
 

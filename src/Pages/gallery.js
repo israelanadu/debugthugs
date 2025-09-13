@@ -51,7 +51,7 @@ class Gallery extends Component {
             return (
                 <Link to={`/gallery/${list.id}/${slugify(list.title)}`}>
                     <section className="gallery_card">
-                        <img src={list.thumbnail} alt="gallary" />
+                        <img src={list.thumbnails} alt="gallary" />
                         <div className="card_info">
                             <h5>{list.title}</h5>
                             <p>{list.date}</p>
@@ -71,7 +71,7 @@ class Gallery extends Component {
             return (
                 <Link to={`/gallery/${list.id}/${slugify(list.title)}`}>
                     <section className="gallery_card">
-                        <img src={list.thumbnail} alt="gallary" />
+                        <img src={list.thumbnails} alt="gallary" />
                         <div className="card_info">
                             <h5>{list.title}</h5>
                             <p>{list.date}</p>
@@ -93,7 +93,7 @@ class Gallery extends Component {
             return (
                 <Link to={`/gallery/${list.id}/${slugify(list.title)}`}>
                     <section className="gallery_card">
-                        <img src={list.thumbnail} alt="gallary" />
+                        <img src={list.thumbnails} alt="gallary" />
                         <div className="card_info">
                             <h5>{list.title}</h5>
                             <p>{list.date}</p>

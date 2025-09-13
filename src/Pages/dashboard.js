@@ -8,6 +8,32 @@ import {Link} from "react-router-dom"
 
 
 class Dashbaord extends Component {
+
+
+
+    state = {
+        user: {
+            full_name: "",
+            email: "",
+            status: "",
+            student_id: ""
+        },
+        eventData: []
+    }
+    componentDidMount() {
+        const savedUser = localStorage.getItem("campusconnectUser");
+        if (savedUser) {
+            const userData = JSON.parse(savedUser);
+            this.setState({
+                user: {
+                    full_name: userData.full_name || "",
+                    email: userData.email || "",
+                    status: userData.status || "",
+                    student_id: userData.student_id || ""
+                }
+            });
+        }
+    }
     filterByStatus = (value) => {
         const event = this.props.event;
         return event.filter((item) =>
@@ -60,7 +86,7 @@ class Dashbaord extends Component {
                     <div className="dash_content_container">
                         <div className="dash_contain">
                             <div className="dash_head">
-                                <h3>Good Day Israel Anadu</h3>
+                                <h3>Good Day {this.state.user.full_name}</h3>
                                 <p>Welcome to Campus Connect, one stop from event information</p>
                             </div>
 

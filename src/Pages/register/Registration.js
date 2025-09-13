@@ -62,6 +62,7 @@ const Registration = () => {
             value={formData.full_name}
             onChange={handleInput}
             placeholder="Enter Full Name"
+            required
           />
 
           <input
@@ -71,6 +72,7 @@ const Registration = () => {
             value={formData.email}
             onChange={handleInput}
             placeholder="Enter Email Address"
+            required
           />
 
           <select
@@ -78,6 +80,7 @@ const Registration = () => {
             id="status"
             value={formData.status}
             onChange={handleInput}
+            required
           >
             <option value="">Select Status</option>
             <option value="visitor">Visitor</option>
