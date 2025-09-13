@@ -543,6 +543,7 @@ div.descrip_side_container{
     justify-content: space-between;
     align-items: start;
     overflow: hidden;
+    flex-direction: column;
     gap: 30px;
     /* display: grid;
     grid-template-columns: 1fr ; */
@@ -862,10 +863,60 @@ div.rating_container section.rating_cover div.comment_container section.comment_
 @media screen and (max-width:1100px) {
     div.dash_menu_container{display: none;}
     div.dash_content_container{width: 100%;}
+    div.descrip_side_container{flex-direction: column;display: flex;}
 }
 @media screen and (max-width:900px) {
     div.dash_table_container{flex-direction: column;}
     div.dash_table_container section.dash_contain{width: 100%;}
+    div.descrip_side_container section.decript_content.large,div.descrip_side_container section.decript_content.small{width: 100%;}
+    div.rating_container section.rating_cover {
+        flex-direction: column;
+        display: flex;
+    }
+
+    div.rating_container section.rating_cover div.rating_number {
+        flex-direction: unset;
+        width: 100%;
+        gap: 20px;
+        align-items: start;
+        justify-content: left;
+        margin-bottom: 20px;
+    }
+
+    div.rating_container section.rating_cover div.rating_number div.rating_star_contain {
+        margin: 0px;
+    }
+
+    div.rating_container section.rating_cover div.rating_number p {
+        margin: 0px;
+        text-align: left;
+        font-size: 13px;
+    }
+
+    div.rating_container section.rating_cover div.rating_number div.center {
+        align-items: start;
+        justify-content: left;
+        gap: 5px;
+    }
+
+    div.rating_container section.rating_cover div.rating_bar {
+        width: 100%;
+    }
+
+    div.rating_container section.rating_cover div.rating_bar div.line_bar.short {
+        width: 150px;
+    }
+
+    div.rating_container section.rating_cover div.rating_bar div.line_bar.long {
+        width: calc(100% - 150px);
+    }
+
+    div.rating_container section.rating_cover div.comment_container section.comment_head {
+        flex-direction: column;
+        align-items: start;
+        gap: 0px;
+    }
+
 }
 @media screen and (max-width:600px) {
     div.dash_gallery_container section.gallery_contain div.folder_contain{grid-template-columns: 1fr 1fr;}
@@ -874,6 +925,7 @@ div.rating_container section.rating_cover div.comment_container section.comment_
     div.dash_content_container div.dash_contain div.dash_head h3{font-size: 22px;}
     div.dash_content_container div.dash_contain div.dash_head p,div.dash_table_container section.dash_contain div.dash_cover p{font-size: 10px;}
     div.dash_content_container div.dash_contain div.dash_record_container div.filter_cover section.filter_contain button{font-size: 11px;padding: 10px 20px;}
+    div.descrip_side_container{flex-direction: column;display: flex;}
 }
 
 
